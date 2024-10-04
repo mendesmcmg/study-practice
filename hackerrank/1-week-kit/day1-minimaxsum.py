@@ -13,11 +13,13 @@ import sys
 #
 
 def miniMaxSum(arr):
+    total_sum = sum(arr)
     mini = min(arr)
     maxi = max(arr)
     
-    minisum = sum(x for x in arr if x != maxi)
-    maxisum = sum(x for x in arr if x != mini)
+    minisum = total_sum - maxi
+    maxisum = total_sum - mini
+    
     print(f"{minisum} {maxisum}")
 
 if __name__ == '__main__':
