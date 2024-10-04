@@ -16,18 +16,14 @@ import sys
 def timeConversion(s):
   hours, mins, secs = s[:-2].split(":")
   ampm = s[-2:]
-  ihours = int(hours)
 
-  if ampm == "PM":
-    if ihours != 12:
-      ihours += 12
-  else:
-    if ihours == 12:
-      ihours = 0
-  hours = str(ihours)
-  if ihours < 10:
-      hours = "0" + hours
-  military_time = ":".join([hours, mins, secs])
+  if ampm == "PM" and hours != "12":
+      hours = str(int(hours) + 12)
+  elif ampm == "AM" and hours == "12":
+      hours = "00"
+    
+    # Ensure hours are always two digits
+  military_time = f"{hours.zfill(2)}:{mins}:{secs}"
   return military_time
 
 if __name__ == '__main__':
