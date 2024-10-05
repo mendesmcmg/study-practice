@@ -22,7 +22,6 @@ def timeConversion(s):
   elif ampm == "AM" and hours == "12":
       hours = "00"
     
-    # Ensure hours are always two digits
   military_time = f"{hours.zfill(2)}:{mins}:{secs}"
   return military_time
 
