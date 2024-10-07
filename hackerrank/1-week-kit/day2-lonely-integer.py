@@ -16,14 +16,11 @@ import sys
 def lonelyinteger(a):
     hist = {}
     for item in a:
-        if item in hist:
-            hist[item] += 1
-        else:
-            hist[item] = 1
-    for el in hist:
-        if hist[el] == 1:
-            return el
+        hist[item] = hist.get(item, 0) + 1
     
+    for el, count in hist.items():
+        if count == 1:
+            return el
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
